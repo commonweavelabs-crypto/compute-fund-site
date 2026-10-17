@@ -1,0 +1,374 @@
+projectId: prj-compute-fund-v0-20260803
+missionId: mvp-auto-2026-04-22-001
+createdBy: Athena
+createdAt: '2026-08-04T00:35:55Z'
+autonomyMode: work_to_mvp
+mandatoryProcess: 'MILESTONE SYSTEM — MANDATORY PROCESS: create, update, close, advance,
+  and seed milestone helpers only through the milestone-ops process and shared helper
+  scripts.'
+mbsaRuntimePolicy:
+  inheritedByFutureMilestones: true
+  seedHelperPath: scripts/mbsa-seed-project.py
+  lifecycleHelperPath: scripts/milestone-helper-lifecycle.py
+  completionCommand: scripts/milestone-helper-lifecycle.py complete
+  selfTerminateOnCompletion: true
+  registerSuccessorOnCompletion: true
+  disableStaleHelpers: true
+  silentNoopExit: true
+  announceOnlyOnMaterialEvents: true
+  futureMilestoneSpecsSeededByDefault: true
+milestones:
+- milestoneId: cfv-ms-001
+  title: Initial project alignment
+  purpose: Establish a coherent first working direction from the seed and inherited
+    knowledge.
+  effortClass: small
+  targetDeadline: ''
+  deadlineRationale: ''
+  deadlineConfidence: medium
+  milestoneUrgency: ''
+  milestoneCadenceMode: ''
+  checkpointFrequency: ''
+  reschedulePolicy: ''
+  successCriteria:
+  - project lead has reviewed core docs
+  - inherited parent-shared context has been reviewed
+  - first bounded work lane is selected
+  checklist:
+  - id: cfv-ms-001-item-001
+    description: Review mission, inherited context, and current project state.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-001-item-002
+    description: Select the first bounded milestone-advancing work lane.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  evidenceRequired:
+  - MISSION.md
+  - INITIAL-ROADMAP.md
+  - MILESTONE-STATE.yaml
+  judgeMode: fast_then_strong
+  judgeScope: milestone
+  boundHelperDefaults:
+    type: mbsa
+    selfTerminateOnCompletion: true
+    lifecycleHelperPath: scripts/milestone-helper-lifecycle.py
+    seedHelperPath: scripts/mbsa-seed-project.py
+    registerSuccessorOnCompletion: true
+    silentNoopExit: true
+    announceOnlyOnMaterialEvents: true
+  suggestedOwners:
+  - david
+  dependencies: []
+  status: pending
+  nextSuggestedAction: review mission, goals, inherited memory, and current project
+    docs
+  assignedAgentId: david
+  ownerAgentId: david
+  type: build
+  model: ollama/minimax-m2.7:cloud
+- milestoneId: cfv-ms-002
+  title: First bounded build pass
+  purpose: Produce the first concrete project artifact that advances the MVP or first
+    milestone family.
+  effortClass: medium
+  targetDeadline: ''
+  deadlineRationale: ''
+  deadlineConfidence: medium
+  milestoneUrgency: ''
+  milestoneCadenceMode: ''
+  checkpointFrequency: ''
+  reschedulePolicy: ''
+  successCriteria:
+  - one meaningful artifact is created or materially improved
+  - writeback captures what changed and why
+  - blocker state is explicit if progress stalls
+  checklist:
+  - id: cfv-ms-002-item-001
+    description: Identify the smallest useful build artifact for this milestone.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-002-item-002
+    description: Execute the selected build pass and record changed artifacts.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-002-item-003
+    description: Update milestone state, work log, and next task proposal.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  evidenceRequired:
+  - NEXT-STEP-QUEUE.yaml
+  - MILESTONE-REPORTING.md
+  judgeMode: fast_then_strong
+  judgeScope: milestone
+  boundHelperDefaults:
+    type: mbsa
+    selfTerminateOnCompletion: true
+    lifecycleHelperPath: scripts/milestone-helper-lifecycle.py
+    seedHelperPath: scripts/mbsa-seed-project.py
+    registerSuccessorOnCompletion: true
+    silentNoopExit: true
+    announceOnlyOnMaterialEvents: true
+  suggestedOwners:
+  - david
+  dependencies:
+  - cfv-ms-001
+  status: pending
+  nextSuggestedAction: select the top bounded task under the current milestone and
+    execute it
+  assignedAgentId: david
+  ownerAgentId: david
+  type: build
+  model: ollama/minimax-m2.7:cloud
+- milestoneId: cfv-ms-003
+  title: Milestone review and next-step refresh
+  purpose: Evaluate milestone outputs, summarize progress, and propose the next milestone
+    set.
+  effortClass: small
+  targetDeadline: ''
+  deadlineRationale: ''
+  deadlineConfidence: medium
+  milestoneUrgency: ''
+  milestoneCadenceMode: ''
+  checkpointFrequency: ''
+  reschedulePolicy: ''
+  successCriteria:
+  - current milestone outputs are reviewed
+  - milestone report is written
+  - next milestone recommendations are proposed
+  - milestone alignment checkpoint is prepared for Gui when a milestone family boundary
+    is reached
+  checklist:
+  - id: cfv-ms-003-item-001
+    description: Output review — completed checklist items, evidence artifacts, judge
+      receipts.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-003-item-002
+    description: Drift detection — compare built work vs mission + last 2 review reports.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-003-item-003
+    description: Debug/health check — verify recent changes did not break existing
+      functionality.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-003-item-004
+    description: Cleanup — prune stale/blocked/duplicate milestones; close dead ends;
+      archive ghost tasks; merge redundant work.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-003-item-005
+    description: Next-step proposal — propose next milestone set from remaining work
+      + mission alignment.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-003-item-006
+    description: Detailed report written, saved to memory/milestone-receipts.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-003-item-007
+    description: Tagging — Obsidian frontmatter tags per manifest §6.2 (milestone/review,
+      project/<slug>, milestone/<id>, type/tock, status/<verdict>).
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-003-item-008
+    description: Handoff — activate next milestone or auto-generate new ones (anti-retirement).
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  evidenceRequired:
+  - MILESTONE-REPORTING.md
+  - MILESTONE-ALIGNMENT-AND-APPROVAL.md
+  judgeMode: fast_then_strong
+  judgeScope: milestone
+  boundHelperDefaults:
+    type: mbsa
+    selfTerminateOnCompletion: true
+    lifecycleHelperPath: scripts/milestone-helper-lifecycle.py
+    seedHelperPath: scripts/mbsa-seed-project.py
+    registerSuccessorOnCompletion: true
+    silentNoopExit: true
+    announceOnlyOnMaterialEvents: true
+  suggestedOwners:
+  - david
+  dependencies:
+  - cfv-ms-002
+  status: pending
+  nextSuggestedAction: evaluate completed work and prepare milestone checkpoint report
+  assignedAgentId: david
+  ownerAgentId: david
+  type: review
+  reviewScope: last_n_builds
+  model: ollama/kimi-k3:cloud
+- milestoneId: cfv-ms-004
+  title: Connect live Supabase backend
+  purpose: Wire the local v0 prototype to a real Supabase backend for project and
+    ledger persistence, replacing in-memory/stub state.
+  effortClass: medium
+  targetDeadline: '2026-08-12'
+  deadlineRationale: Scheduled milestone; target date 2026-08-12 set at creation.
+  deadlineConfidence: medium
+  milestoneUrgency: ''
+  milestoneCadenceMode: ''
+  checkpointFrequency: ''
+  reschedulePolicy: ''
+  successCriteria:
+  - Supabase project configured and connected
+  - Project/ledger persistence works against real backend
+  - Seed script for schema and sample data
+  checklist:
+  - id: cfv-ms-004-item-001
+    description: Review completed checklist items, evidence artifacts, and judge receipts.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-004-item-002
+    description: Write the milestone report and next milestone recommendation.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  evidenceRequired:
+  - MILESTONE-REPORTING.md
+  - MILESTONE-ALIGNMENT-AND-APPROVAL.md
+  judgeMode: fast_then_strong
+  judgeScope: milestone
+  boundHelperDefaults:
+    type: mbsa
+    selfTerminateOnCompletion: true
+    lifecycleHelperPath: scripts/milestone-helper-lifecycle.py
+    seedHelperPath: scripts/mbsa-seed-project.py
+    registerSuccessorOnCompletion: true
+    silentNoopExit: true
+    announceOnlyOnMaterialEvents: true
+  suggestedOwners:
+  - david
+  dependencies:
+  - cfv-ms-003
+  status: pending
+  nextSuggestedAction: begin work on Connect live Supabase backend
+  assignedAgentId: david
+  ownerAgentId: david
+  type: build
+  model: ollama/minimax-m2.7:cloud
+- milestoneId: cfv-ms-005
+  type: review
+  title: Milestone review and next-step refresh
+  purpose: 'Evaluate milestone outputs, summarize progress, and propose the next milestone
+    set. Tick-Tock review milestone (tock): drift check, health check, tagged report,
+    handoff.'
+  effortClass: small
+  reviewScope: last_n_builds
+  reviewedMilestones:
+  - cfv-ms-004
+  targetDeadline: ''
+  deadlineRationale: Tick-Tock auto-inserted review milestone (tock).
+  deadlineConfidence: medium
+  milestoneCadenceMode: weekly
+  checkpointFrequency: weekly
+  reschedulePolicy: notify Gui if deadline slips
+  successCriteria:
+  - current milestone outputs are reviewed
+  - drift check against mission + last 2 review reports is performed
+  - health/debug check is performed
+  - next milestone set is proposed
+  - detailed report written, tagged, and saved
+  - handoff executed (next milestone activated or chain re-seeded)
+  checklist:
+  - id: cfv-ms-005-item-001
+    description: Output review — completed checklist items, evidence artifacts, judge
+      receipts.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-005-item-002
+    description: Drift detection — compare built work vs mission + last 2 review reports.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-005-item-003
+    description: Debug/health check — verify recent changes did not break existing
+      functionality.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-005-item-004
+    description: Cleanup — prune stale/blocked/duplicate milestones; close dead ends;
+      archive ghost tasks; merge redundant work.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-005-item-005
+    description: Next-step proposal — propose next milestone set from remaining work
+      + mission alignment.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-005-item-006
+    description: Detailed report written, saved to memory/milestone-receipts.
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-005-item-007
+    description: Tagging — Obsidian frontmatter tags per manifest §6.2 (milestone/review,
+      project/<slug>, milestone/<id>, type/tock, status/<verdict>).
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  - id: cfv-ms-005-item-008
+    description: Handoff — activate next milestone or auto-generate new ones (anti-retirement).
+    status: pending
+    evidence: []
+    ownerAgentId: david
+  evidenceRequired:
+  - MISSION.md
+  - MILESTONE-STATE.yaml
+  judgeMode: fast_then_strong
+  judgeScope: milestone
+  boundHelperDefaults:
+    type: mbsa
+    selfTerminateOnCompletion: true
+    lifecycleHelperPath: scripts/milestone-helper-lifecycle.py
+    seedHelperPath: scripts/mbsa-seed-project.py
+    registerSuccessorOnCompletion: true
+    silentNoopExit: true
+    announceOnlyOnMaterialEvents: true
+  suggestedOwners:
+  - david
+  dependencies:
+  - cfv-ms-004
+  status: pending
+  nextSuggestedAction: 'run the 7 tock steps: output review, drift detection, health
+    check, next-step proposal, detailed report, tagging, handoff'
+  assignedAgentId: david
+  ownerAgentId: david
+  model: ollama/kimi-k3:cloud
+provenance:
+  origin:
+    actor: David
+    at: '2026-08-04T00:35:55Z'
+    mode: runtime-remediation
+  events:
+  - event: milestone_added
+    milestoneId: cfv-ms-004
+    at: '2026-08-06T01:18:28Z'
+    actor: milestone-add.py
+updatedAt: '2026-08-09T10:00:19Z'
+tickTockPolicy:
+  reviewEvery: 1
+  driftThreshold: 40
+  autoReseedOnExhaustion: true
+  sideChainsEnabled: true
+  emergencyTockOnHighBlocker: true

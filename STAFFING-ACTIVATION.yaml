@@ -1,0 +1,59 @@
+projectId: prj-compute-fund-v0-20260803
+missionContractPath: MISSION-CONTRACT.yaml
+jobId: <job-id>
+staffingPlanId: <staffing-plan-id>
+createdBy: David
+createdAt: '2026-08-04T00:35:55Z'
+activationDecision: activation-ready
+torchPassing:
+  autoEmitRequestsWhenActivationReady: true
+  staffingOutboxPath: handoffs/staffing-requests/
+  hephaestusReceiptPath: handoffs/receipts/hephaestus/
+  zeusReceiptPath: handoffs/receipts/zeus/
+  kronosReceiptPath: handoffs/receipts/kronos/
+  callbackReceiptPath: handoffs/receipts/callbacks/
+  requireRealScheduleReceiptBeforeLive: true
+agentOperatingContract:
+  scopeAndAccessLimitsRequired: true
+  activeMilestoneDisciplineRequired: true
+  workOnlyAssignedMilestones: true
+  writebackViaMilestoneHelperRequired: true
+  boundedNextStepTasksOnly: true
+  allowedReportTriggers:
+  - milestone_completion
+  - blocker
+  - major_drift
+  - due_date_miss
+  suppressWakeWhenNoActiveMilestone: true
+  syncRuntimeSurfacesOnActiveMilestoneChange: true
+  milestoneCloseRequiresFastAndStrongJudges: true
+  milestoneCloseRequiresEvidenceArtifacts: true
+  inheritProjectMissionMilestoneJudgeContract: true
+  judgeReceiptsValidateCompletionClaims: true
+  runtimeSurfacesToKeepAligned:
+  - MILESTONE-STATE.yaml
+  - NEXT-STEP-QUEUE.yaml
+  - KRONOS-MILESTONE-SCHEDULE-REQUEST.yaml
+judgePolicy:
+  judgeReceiptPath: handoffs/receipts/judges/
+  fastVerifierRequired: true
+  strongVerifierRequiredForMilestoneClose: true
+  strongVerifierRequiredForMvpClose: true
+  defaultJudgeLane: miya-or-equivalent
+rolesToEmit:
+- proposedAgentId: <agent-id>
+  requestId: <request-id>
+  milestoneId: <milestone-id>
+  requiredNow: <true|false>
+  reason: <why-now>
+  requiredRuntimePaths:
+    milestoneStatePath: MILESTONE-STATE.yaml
+    milestoneHelperPath: scripts/project-milestone-state-helper.py
+    nextStepQueuePath: NEXT-STEP-QUEUE.yaml
+    kronosMilestoneSchedulePath: KRONOS-MILESTONE-SCHEDULE-REQUEST.yaml
+    judgeReceiptPath: handoffs/receipts/judges/
+    completionReportPath: MILESTONE-REPORTING.md
+    exceptionReportPath: MILESTONE-EXCEPTION-REPORT.md
+blockingIssues:
+- <issue-if-not-ready>
+generationMode: runtime-remediation

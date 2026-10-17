@@ -1,0 +1,32 @@
+schema: project.mission-contract.v1
+projectId: prj-compute-fund-v0-20260803
+projectSlug: compute-fund-v0
+createdBy: David
+createdAt: '2026-08-04T00:35:55Z'
+provenance:
+  origin:
+    actor: David
+    at: '2026-08-04T00:35:55Z'
+    mode: runtime-remediation
+mission:
+  name: compute-fund-v0
+  objective: Runtime-remediated mission contract for compute-fund-v0.
+judgePolicy:
+  appliesToFutureProjectAgentsByDefault: true
+  requireJudgeAfterMeaningfulPass: true
+  fastVerifierRequired: true
+  strongVerifierRequiredForMilestoneClose: true
+  strongVerifierRequiredForMvpClose: true
+  verifierLane: miya-or-equivalent
+  judgeReceiptDirectory: handoffs/receipts/judges/
+milestoneRuntimePolicy:
+  activeMilestoneOnly: true
+  writebackRequired: true
+  helperPath: scripts/project-milestone-state-helper.py
+  syncRuntimeSurfacesOnActiveMilestoneChange: true
+  completionClaimsNeedJudgeReceipt: true
+  completionEvidenceRequired: true
+  synchronizedSurfaces:
+  - MILESTONE-STATE.yaml
+  - NEXT-STEP-QUEUE.yaml
+  - KRONOS-MILESTONE-SCHEDULE-REQUEST.yaml

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>02 — Public Address (Kiosk)</title>
+<style>
+  :root{
+    --paper:#fbf7f1; --ink:#111111; --red:#d43d1a; --blue-navy:#141c46;
+    --grain:rgba(0,0,0,.03); --rule:#111111;
+    --sans:'Archivo Black','Arial Black',Impact,sans-serif;
+    --body:'Work Sans','Segoe UI',Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--body);padding:26px;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");}
+  .wrap{max-width:1240px;margin:0 auto;}
+  .mast{display:flex;justify-content:space-between;align-items:center;border:3px solid var(--rule);padding:16px 20px;gap:12px;}
+  .mast h1{font-family:var(--sans);font-size:30px;line-height:1.02;text-transform:uppercase;letter-spacing:-.01em;}
+  .mast p{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-top:6px;color:#333;}
+  .tag{align-self:flex-start;background:var(--red);color:#fff;font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;padding:8px 12px;}
+  .filterbar{display:flex;gap:10px;margin:16px 0 20px;align-items:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;}
+  .filterbar span{border:1.5px solid var(--rule);padding:6px 12px;background:#fbf7f1;}
+  .filterbar span.on{background:var(--ink);color:#fff;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+
+  .poster{border:2.5px solid var(--rule);background:#fff;position:relative;padding:0 0 18px;}
+  .poster .strip{background:var(--ink);color:#fff;font-family:var(--sans);font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:7px 12px;display:flex;justify-content:space-between;}
+  .poster .cat{position:absolute;top:34px;left:-2.5px;background:var(--blue-navy);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;padding:5px 10px;}
+  .bigamt{padding:44px 14px 10px;font-family:var(--sans);font-size:56px;line-height:.9;letter-spacing:-.02em;}
+  .bigamt small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin-top:8px;font-weight:400;color:#333;}
+  .poster h3{font-family:var(--sans);font-size:19px;line-height:1.1;text-transform:uppercase;padding:0 14px;margin-top:6px;}
+  .poster .who{font-family:var(--mono);font-size:11px;padding:6px 14px 0;color:#333;letter-spacing:.08em;text-transform:uppercase;}
+  .poster .sum{font-size:13px;line-height:1.5;padding:8px 14px 0;color:#222;}
+  .blockbar{margin:14px 12px 0;height:26px;display:flex;gap:3px;border:2px solid var(--rule);padding:2px;background:#fbf7f1;}
+  .blockbar i{flex:0 0 auto;width:6%;background:var(--red);}
+  .blockbar i.off{background:transparent;}
+  .blocklegend{display:flex;justify-content:space-between;padding:6px 14px 0;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;}
+  .receiptline{margin:12px 14px 0;border-top:1px dashed var(--rule);border-bottom:1px dashed var(--rule);padding:7px 0;font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;display:flex;justify-content:space-between;}
+  .receiptline b{color:var(--red);}
+  .tiers{display:flex;flex-direction:column;gap:6px;margin:10px 14px 0;}
+  .tiers button{font-family:var(--sans);font-size:13px;letter-spacing:.08em;border:2px solid var(--rule);background:#fff;padding:9px 12px;display:flex;justify-content:space-between;text-transform:uppercase;}
+  .tiers button.sel{background:var(--red);color:#fff;border-color:var(--red);}
+  .posterfoot{display:flex;margin:12px 14px 0;border:2px solid var(--rule);}
+  .posterfoot button{flex:1;padding:10px 0;font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:#fff;border:0;border-right:2px solid var(--rule);}
+  .posterfoot button:last-child{border-right:0;background:var(--ink);color:#fff;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mast">
+    <div>
+      <h1>Fund the compute.<br>Read every receipt.</h1>
+      <p>A public crowd ledger for machine-time — patrons only, no investors.</p>
+    </div>
+    <span class="tag">Community priority open</span>
+  </div>
+
+  <div class="filterbar">
+    <span class="on">All</span><span>Research</span><span>Public good</span><span>Dev tools</span>
+    <span style="margin-left:auto;border:0;letter-spacing:.18em;">↓ sort: community votes</span>
+  </div>
+
+  <div class="grid">
+
+    <div class="poster">
+      <div class="strip"><span>Receipt №0042 · Open</span><span>42 days left</span></div>
+      <span class="cat">Research</span>
+      <div class="bigamt">62%<small>of $12,000 committed</small></div>
+      <h3>Astra Math Verification Sprint</h3>
+      <p class="who">Open Research Guild · 186 patrons</p>
+      <p class="sum">Pool compute to test frontier models against a difficult proof search. Every run logged for supporters.</p>
+      <div class="blockbar"><i style="width:6%"></i><i style="width:6%"></i><i style="width:6%"></i><i style="width:6%"></i><i style="width:6.2%"></i><i class="off" style="width:2%"></i></div>
+      <div class="blocklegend"><span>$7,420 raised</span><span>$4,580 to go</span></div>
+      <div class="receiptline"><span>RUN 12 · OpenAI reasoning</span><b>−$820 · 3 routes found</b></div>
+      <div class="tiers">
+        <button>Become a patron · $25</button>
+        <button class="sel">Patron II · $500</button>
+      </div>
+      <div class="posterfoot"><button>Read receipts</button><button>Fund this</button></div>
+    </div>
+
+    <div class="poster">
+      <div class="strip"><span>Receipt №0043 · Open</span><span>26 days left</span></div>
+      <span class="cat">Public Good</span>
+      <div class="bigamt">46%<small>of $6,800 committed</small></div>
+      <h3>Rural Clinic Scheduling Optimizer</h3>
+      <p class="who">Civic Systems Lab · 74 patrons</p>
+      <p class="sum">Use sponsored model credits to cut wait times at a small clinic — no enterprise software required.</p>
+      <div class="blockbar"><i style="width:6%"></i><i style="width:6%"></i><i style="width:6%"></i><i style="width:6%"></i><i class="off" style="width:3%"></i></div>
+      <div class="blocklegend"><span>$3,120 raised</span><span>$3,680 to go</span></div>
+      <div class="receiptline"><span>RUN 03 · Claude planning</span><b>−$240 · queued</b></div>
+      <div class="tiers">
+        <button class="sel">Become a patron · $25</button>
+        <button>Patron II · $100</button>
+      </div>
+      <div class="posterfoot"><button>Read receipts</button><button>Fund this</button></div>
+    </div>
+
+    <div class="poster">
+      <div class="strip"><span>Receipt №0044 · Open</span><span>8 days left</span></div>
+      <span class="cat">Developer Tools</span>
+      <div class="bigamt">94%<small>of $9,500 committed</small></div>
+      <h3>Open Source Bug Bounty Agent</h3>
+      <p class="who">Gui Labs · 241 patrons</p>
+      <p class="sum">Backers fund AI debugging passes for issues maintainers cannot afford to chase by hand.</p>
+      <div class="blockbar"><i style="width:6%"></i><i style="width:6%"></i><i style="width:6%"></i><i style="width:6%"></i><i style="width:6%"></i><i style="width:4%"></i></div>
+      <div class="blocklegend"><span>$8,910 raised</span><span>$590 to go</span></div>
+      <div class="receiptline"><span>RUN 07 · xAI code analysis</span><b>−$640 · 1 bug found</b></div>
+      <div class="tiers">
+        <button>Become a patron · $25</button>
+        <button class="sel">Patron II · $100</button>
+      </div>
+      <div class="posterfoot"><button>Read receipts</button><button>Fund this</button></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

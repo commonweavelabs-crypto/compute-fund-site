@@ -1,0 +1,22 @@
+judgeReceiptId: judge-<YYYYMMDD>-001
+missionId: <mission-id>
+projectId: <project-id>
+milestoneId: <milestone-id-or-empty>
+scope: milestone # pass | milestone | mvp
+status: achieved # achieved | not_achieved | blocked | needs_alignment
+confidence: high # low | medium | high
+reason: <short-human-readable-explanation>
+largestGap: <main-missing-condition-or-empty>
+evidenceChecked:
+  - <path-or-command-result>
+nextBestAction: <one-bounded-recommendation>
+loopRisk: none # none | low | medium | high
+judgeTier: fast # fast | strong
+judgeAgent: miya-or-equivalent
+createdAt: <ISO-8601>
+requiredForClose: true
+closeContract:
+  fastAndStrongRequiredForMilestoneClose: true
+  evidenceArtifactsRequired: true
+  copiedIntoMilestoneStateRecentMilestones: true
+notes: ''

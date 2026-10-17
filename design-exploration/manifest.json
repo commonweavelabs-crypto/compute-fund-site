@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "project": "Compute Fund — first UI page exploration",
+  "brief": "First UI page of Compute Fund, a Kickstarter-inspired crowdfunding platform where patrons (never investors) fund LLM compute tokens — fiat or crypto. Every compute run issues a public receipt (model, tokens, cost, output). Community votes milestones; language is patronage, not investment. Each candidate shows the same first screen: project grid with funding progress toward goal ($7,420/$12,000, $3,120/$6,800, $8,910/$9,500) and patron tier buttons ($25/$100/$500). Same content and primary action (fund a run), three different visual languages, all evolving away from the deep-green v0 baseline.",
+  "round": "01",
+  "baseline": "00-baseline-v0.html",
+  "candidates": [
+    {
+      "id": "00-baseline-v0",
+      "name": "v0 Baseline (现状) — Deep Green Cards",
+      "concept": "Current state: friendly light-neutral dashboard, deep-green primary, 3-col project card grid with thin progress bar and 3-button footer. Kept as the reference point every direction must evolve from, not repeat.",
+      "typography": "System UI sans (Segoe/Helvetica), weights 400/600; 11px uppercase tracked chips, 17–24px semibold headings, 13–14px body. No display face.",
+      "palette": ["#f6f7f4", "#1f4f46", "#2c7a61"],
+      "traits": ["Light warm-grey page, white cards", "Thin 8px rounded progress bar", "Chip-style category labels", "Uniform 3-button card footers", "Soft 8px radius everywhere"],
+      "kind": "html",
+      "source": "candidates/00-baseline-v0.html"
+    },
+    {
+      "id": "01-carbon-ledger",
+      "name": "01 — Carbon Ledger",
+      "concept": "The platform's radical-transparency ethos as a physical document: each project entry reads like an auditable carbon-audit ledger card filed in a public record — dotted leader lines, entry items, a stamped seal, hatched ink bar. Using it feels like reading a trustworthy filing cabinet, not a storefront.",
+      "typography": "Serif-led editorial register: Iowan Old Style / Georgia for project titles, headings and body (700 titles 21px, body 14px); mono (SF Mono/Consolas) for every number, ledger line and label, 10–12px, letterspaced smallcaps feel.",
+      "palette": ["#f4efe3", "#181614", "#b3372b"],
+      "traits": ["Aged-paper field with faint ruled texture", "Dashed perforation rules at card top/bottom", "Dotted leader lines between label and value", "45° hatched ink progress bar with mono % overlay", "Double-rule masthead with red seal accents"],
+      "kind": "html",
+      "source": "candidates/01-carbon-ledger.html"
+    },
+    {
+      "id": "02-public-address",
+      "name": "02 — Public Address",
+      "concept": "The community decides — so the page shouts like civic street media: a public noticeboard / kiosk poster wall where the funding percentage itself is the headline. Community-priority status is treated as a public tag, patrons replace backers everywhere. Using it feels like standing in front of a wall of serious civic posters.",
+      "typography": "Heavy poster display: Archivo Black / Arial Black uppercase condensed headings (56px percent figures, 19–30px titles); Work Sans for one-line summaries (13px); mono uppercase 10–11px for metadata, receipts and legend.",
+      "palette": ["#fbf7f1", "#111111", "#d43d1a"],
+      "traits": ["3px black borders on every element, wheat-paper grain", "Percent figure is the hero of each card", "Block-segment funding bar (each block = a funding chunk)", "Blue civic category tags overlapping card frame", "Black poster-strip headers like kiosk notices"],
+      "kind": "html",
+      "source": "candidates/02-public-address.html"
+    },
+    {
+      "id": "03-terminal-commons",
+      "name": "03 — Terminal Commons",
+      "concept": "The public receipt IS the interface: one compute commons wall where each project is a live unit streaming its most recent public receipts (run, model, spend, output) in phosphor green on near-black. Radical transparency becomes ambience — you watch the commons work. Using it feels like standing at the master control panel of shared machine-time.",
+      "typography": "Mono-led instrument register: system mono (JetBrains/SF Mono/Consolas) for the receipt streams, status bar, tiers, ticker and all numbers (11px, 1.7 line-height); Inter/system sans only for unit titles (16px semibold) — sans is the voice of people, mono is the voice of the machine.",
+      "palette": ["#0c1013", "#d7e4dc", "#5cff9d"],
+      "traits": ["Phosphor-green amber-and-red signal palette on near-black panels", "Live receipt stream block per card (run, model, −cost, output)", "Amber priority and unit IDs; green confirmed outputs", "Glowing gauge percent + thin neon progress bar", "Bottom live-ledger ticker strip"],
+      "kind": "html",
+      "source": "candidates/03-terminal-commons.html"
+    }
+  ],
+  "directions_extra": {
+    "01-carbon-ledger": {
+      "audience": "Researchers, grant officers, auditable-minded patrons who distrust marketing surfaces",
+      "hero": "The ledger card itself — dotted-leader entry lines and the hatched ink progress bar",
+      "motion_note": "Paper feel: numbers settle like typewriter strikes when a new run is receipted; the hatched bar fills with a subtle ink-bleed ease; stamping a commitment presses the seal down 2px with a spring release. One hero move: on each new compute receipt, a stamped line types itself into the card."
+    },
+    "02-public-address": {
+      "audience": "The broad crowd — first-visit first-time backers, community voters, people moved by civic urgency",
+      "hero": "The giant funding-percent figure as poster headline, backed by the block-segment bar",
+      "motion_note": "Poster behavior: percent figures roll up like a split-flap display on load; each bar block fills with a firm snap (200ms, no bounce) as funding ticks; community-priority tag flips in with a single rotateX. One hero move: when a project crosses 100%, its whole poster border flashes red for one beat — the kiosk 'funded' moment."
+    },
+    "03-terminal-commons": {
+      "audience": "Builders, agents-economy natives, technical patrons watching the compute commons live",
+      "hero": "The streaming public-receipt block inside each unit plus the glowing green gauge",
+      "motion_note": "Instrument behavior: receipt lines stream in top-to-bottom with a 30ms cascade; the status-bar patron counter ticks up live; the gauge glow pulses once per confirmed run (single 600ms breathe, no loops). One hero move: funding the run appends a new line into the live stream — 'patron +$100 · run queued' — so the user sees themselves enter the public record."
+    },
+    "00-baseline-v0": {
+      "audience": "Existing v0 users",
+      "hero": "Friendly card grid",
+      "motion_note": "None defined (baseline)."
+    }
+  }
+}

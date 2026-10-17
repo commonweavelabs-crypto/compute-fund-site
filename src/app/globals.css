@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+/* Compute Fund — ONE skeleton, TWO identities (tokens only, no hardcoded hex in components)
+   dark  = Terminal Commons  (master control panel of shared machine-time)
+   light = Carbon Ledger     (trustworthy public filing cabinet) */
+
+:root,
+html[data-theme="dark"] {
+  --bg: #0c1013;
+  --panel: #121a1f;
+  --panel2: #171f24;
+  --line: #223138;
+  --tx: #d7e4dc;
+  --tx-dim: #7e948a;
+  --phos: #5cff9d;   /* machine voice: positive signal */
+  --amber: #ffc95c;  /* unit ids, priority, spend */
+  --red: #ff6b57;    /* alert / "investors: none" */
+  --font-display: var(--font-geist-sans);
+}
+
+html[data-theme="light"] {
+  --bg: #f4efe3;     /* paper */
+  --panel: #fbf8f0;
+  --panel2: #efe8d8;
+  --line: #d8cfba;
+  --tx: #181614;     /* ink */
+  --tx-dim: #6b6357;
+  --phos: #3e6b3a;   /* ledger green */
+  --amber: #96651a;  /* ledger amber */
+  --red: #b3372b;    /* audit-seal red */
+  --font-display: Georgia, "Iowan Old Style", "Times New Roman", serif;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel2: var(--panel2);
+  --color-line: var(--line);
+  --color-tx: var(--tx);
+  --color-dim: var(--tx-dim);
+  --color-phos: var(--phos);
+  --color-amber: var(--amber);
+  --color-red: var(--red);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* ── instrument furniture (identity pieces shared by both themes) ─────────── */
+
+/* live pulse dot */
+.live {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: var(--phos);
+  border-radius: 50%;
+  margin-right: 6px;
+  box-shadow: 0 0 6px var(--phos);
+}
+
+/* neon fill bar */
+.vbar {
+  height: 6px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.vbar i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--phos);
+}
+html[data-theme="dark"] .vbar i {
+  box-shadow: 0 0 8px rgba(92, 255, 157, 0.4);
+}
+
+/* live-ledger ticker */
+.ticker-track {
+  display: inline-flex;
+  gap: 2.5rem;
+  white-space: nowrap;
+  padding-left: 1rem;
+  animation: ticker-scroll 30s linear infinite;
+}
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* machine-voice stream lines */
+.stream-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--tx-dim);
+  line-height: 1.7;
+}
+.stream-line b {
+  color: var(--tx);
+  font-weight: 500;
+}
+.stream-line.ok {
+  color: var(--phos);
+}
+.stream-line.spend {
+  color: var(--amber);
+}
+
+/* machine voice: mono everywhere except human unit titles */
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* human voice display headings: sans in the dark terminal, serif in the light ledger */
+.display {
+  font-family: var(--font-display);
+}
+
+/* motion: landing rebuild */
+@keyframes fadein {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+.anim-fadein {
+  animation: fadein 0.7s ease both;
+}
+
+@keyframes lineIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.anim-cascade {
+  animation: lineIn 0.35s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anim-fadein,
+  .anim-cascade {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}

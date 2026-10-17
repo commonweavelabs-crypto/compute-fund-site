@@ -1,0 +1,127 @@
+status: draft-live
+projectId: prj-compute-fund-v0-20260803
+projectSlug: compute-fund-v0
+projectName: Compute Fund v0
+parentProject: null
+parentProjectId: null
+projectRelationship: standalone
+createdBy: David
+createdAt: 2026-08-03 20:30:00+00:00
+provenance:
+  origin:
+    actor: David
+    at: 2026-08-03 20:30:00+00:00
+    mode: runtime-remediation
+seed:
+  seedId: seed-compute-fund-v0-20260803-01
+  sourceType: voice-note
+  sourceRef: memory/athena/seeds/compute-fund-v0.yaml
+  rawSummary: ''
+  normalizedSummary: Community-funded AI compute platform. A fun way to contribute
+    compute to solve problems, to cover popular questions or ideas, and to fund new
+    projects directly on the platform. Working prototype (v0) toward an MVP.
+  confidence: high
+mission:
+  oneLine: Build a community-funded AI compute platform where anyone can fund compute
+    to solve problems, cover popular questions/ideas, and directly fund new projects.
+  expanded: 'Compute Fund lets supporters contribute compute credits to projects,
+    questions, and ideas. Creators can add a project, supporters can fund compute
+    credits, the project balance and priority score update, compute runs generate
+    public receipts, and the ledger records money in and compute out. The manifesto
+    framing avoids investment, share, and return language.
+
+
+    Current build is local and seeded, demonstrating the core mechanics before live
+    Stripe, Supabase, and model-provider credentials are connected.
+
+    '
+goals:
+  immediate:
+  - Remediate project-creation-gate violation and register the project
+  - Complete the working v0 prototype pages
+  - Connect local seeded state to Supabase reads and mutations
+  nearTerm:
+  - Ship a minimum viable product (past V0)
+  - Add Stripe checkout and webhook routes
+  - Add provider adapters for OpenAI, Anthropic, and xAI receipts
+  - Token efficiency incentive system (estimates vs actuals, leftover tokens to teams)
+  - Community voting on milestones (upvote/downvote, priority ranking)
+  - Team rating system (1-5 stars, reviews, Top Performer / Needs Improvement badges)
+  - Plugin/dependency revenue split editor (transparent splits on project pages)
+  - Linktree landing page (shareable on social media)
+  longTerm:
+  - Full community funding platform
+  - Popular questions/ideas coverage
+  - Direct project funding on-platform
+  - Community-voted platform fee percentage
+  - Cross-team token transfers (stack, transfer, external)
+  - Democratic governance over AI compute allocation
+scope:
+  inScope:
+  - Next.js app with creators, funding, priority scoring, compute receipts, ledger
+  - Supabase integration (schema + reads/mutations)
+  - Stripe checkout and webhook routes
+  - Model-provider receipt adapters
+  - Milestone system with estimated vs actual token tracking (public)
+  - Leftover token allocation engine (stack, transfer, external)
+  - Community voting on milestones (upvote/downvote, priority ranking)
+  - Team rating system (1-5 stars, reviews, aggregate badges)
+  - Plugin/dependency revenue split editor (transparent splits)
+  - Linktree landing page (shareable)
+  outOfScope:
+  - Investment/share/return mechanics (excluded — patronage model only)
+  - Mobile native apps
+constraints:
+  hard:
+  - Must use Next.js (v16) + React 19 + Tailwind
+  - No investment/share/return language
+  - Token estimates and actuals MUST be public (core transparency mechanism)
+  - Leftover tokens are the team's reward (non-negotiable incentive design)
+  - Platform fee percentage is community-voted, not hardcoded
+  - No Hermes dependency (standalone deployable app)
+  - Projects that opt in MUST open-source all generated data, outputs, and findings to the entire platform community (open-knowledge projects)
+  - Platform users (creators and patrons) receive LLM token usage based on their subscription/contribution tier — different contribution sizes unlock different token allowances
+  soft:
+  - Clean, modern aesthetics
+  - TypeScript
+pacingPolicy:
+  projectUrgency: high
+  projectDefaultCadence: accelerated
+  projectDeliveryExpectation: standard-delivery
+  policySource: user-specified
+  rationale: Gui wants this moved past v0 toward a minimum viable product.
+risks:
+- category: external-dependency
+  mitigation: Local seeded state works before live Stripe/Supabase/provider creds
+- category: scope-creep
+  mitigation: MVP bounded to core funding + receipts mechanics
+staffing:
+  leadAgentRequired: true
+  proposedLeadRole: david
+  requestedAgents: []
+workspace:
+  root: projects/compute-fund-v0
+  sharedDocsRoot: projects/compute-fund-v0/shared
+  handoffsRoot: projects/compute-fund-v0/handoffs
+  memoryRoot: projects/compute-fund-v0/memory
+isolation:
+  level: strong-project-local
+  crossProjectAccess: denied-by-default
+handoffs:
+  hephaestusRequests: []
+  zeusReviewRequired: false
+  kronosStartupPlan: STARTUP-WAVE.yaml
+lifecycle:
+  phase: mvp_build
+  nextAction: continue-mvp-build
+seedArtifacts:
+  classificationPath: SEED-CLASSIFICATION.md
+  startupReadinessPath: STARTUP-READINESS-CHECKLIST.md
+remediation:
+  history:
+  - actor: David
+    at: '2026-08-03T20:30:00Z'
+    mode: runtime-remediation
+  runtimeBootstrapRemediatedAt: '2026-08-10T10:00:40Z'
+  runtimeBootstrapRemediatedBy: David
+  runtimeBootstrapTarget: project-creation-gate:runtime

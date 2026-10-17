@@ -1,0 +1,330 @@
+schema: project.milestone-state-envelope.v1
+projectId: prj-compute-fund-v0-20260803
+missionId: mvp-auto-2026-04-22-001
+autonomyMode: work_to_mvp
+missionStatus: aligned
+updatedAt: '2026-08-10T10:00:40Z'
+currentMilestoneId: cfv-ms-004
+status: in_progress
+ownerAgentId: david
+progressSummary: 'MBSA completion review passed for cfv-ms-003. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-cfv-ms-003-20260807T140052Z.md
+  | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-rich-cfv-ms-003-20260807T140052Z.md'
+latestJudgeReceiptPath: null
+lastJudgeStatus: null
+lastJudgeTier: null
+judgeContractInheritedByFutureAgents: true
+runtimeSyncContract:
+  canonicalActiveMilestoneField: currentMilestoneId
+  companionSurfaces:
+    nextStepQueueActiveMilestoneId: NEXT-STEP-QUEUE.yaml
+    kronosScheduleMilestoneId: KRONOS-MILESTONE-SCHEDULE-REQUEST.yaml
+  helperPath: scripts/project-milestone-state-helper.py
+  syncRequiredOnActiveMilestoneChange: true
+  failGateOnDrift: true
+completionEvidencePolicy:
+  requiredOnMilestoneClose: true
+  copyIntoRecentMilestones: true
+  minimumEvidenceArtifacts: 1
+  allowedEvidenceArtifactTypes:
+  - completion_report
+  - checkpoint
+  - changed_project_artifact
+  - command_result
+judgeClosePolicy:
+  fastReceiptRequired: true
+  strongReceiptRequired: true
+  copyReceiptReferencesIntoRecentMilestones: true
+activeMilestone:
+  milestoneId: cfv-ms-004
+  ownerAgentId: david
+  status: pending
+  successCriteria: []
+  checklistPolicy:
+    required: true
+    agentsMayFlipOwnItems: true
+    completionRequiresAllRequiredItemsClosed: true
+    allowedStatuses:
+    - pending
+    - in_progress
+    - complete
+    - blocked
+    - skipped
+    evidenceRequiredWhenComplete: true
+  checklist:
+  - id: cfv-ms-002-item-001
+    description: Identify the smallest useful build artifact for this milestone.
+    status: complete
+    evidence:
+    - nsq-003 (Stripe checkout + webhook) selected as highest-impact bounded artifact
+    - memory/milestone-receipts/compute-fund-v0/cfv-ms-003/receipt-cfv-ms-003-20260807T152322Z.yaml
+    ownerAgentId: david
+  - id: cfv-ms-002-item-002
+    description: Execute the selected build pass and record changed artifacts.
+    status: complete
+    evidence:
+    - Created src/app/api/stripe/checkout/route.ts
+    - Created src/app/api/stripe/webhook/route.ts
+    - Created src/lib/stripe-client.ts
+    - Wired redirectToStripeCheckout into fundProject in page.tsx
+    - Updated .env.example with NEXT_PUBLIC_BASE_URL
+    - memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-detailed-20260807T152322Z.md
+    ownerAgentId: david
+  - id: cfv-ms-002-item-003
+    description: Update milestone state, work log, and next task proposal.
+    status: complete
+    evidence:
+    - memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-detailed-20260807T152322Z.md
+    ownerAgentId: david
+  progressSummary: 'MBSA completion review passed for cfv-ms-003. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-cfv-ms-003-20260807T140052Z.md
+    | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-rich-cfv-ms-003-20260807T140052Z.md'
+  nextStep: Advance the newly active milestone with the next bounded task.
+  currentBlocker: null
+  blockerSeverity: null
+  lastWritebackAt: '2026-08-07T14:00:52Z'
+  lastWritebackBy: david
+  lastWritebackSummary: 'MBSA completion review passed for cfv-ms-003. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-cfv-ms-003-20260807T140052Z.md
+    | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-rich-cfv-ms-003-20260807T140052Z.md'
+  evidenceArtifacts:
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/receipt-cfv-ms-001-20260806T140226Z.yaml
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-cfv-ms-001-20260806T140226Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-rich-cfv-ms-001-20260806T140226Z.md
+  - MILESTONE-REPORTING.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-002/receipt-cfv-ms-002-20260806T180356Z.yaml
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-cfv-ms-002-20260806T180356Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-rich-cfv-ms-002-20260806T180356Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-003/receipt-cfv-ms-003-20260807T140052Z.yaml
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-cfv-ms-003-20260807T140052Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-rich-cfv-ms-003-20260807T140052Z.md
+  completionReportPath: MILESTONE-REPORTING.md
+  exceptionReportPath: MILESTONE-EXCEPTION-REPORT.md
+  judgeReceiptPath: null
+  judgeMode: fast_then_strong
+  judgeScope: milestone
+  judgeStatus: null
+  proposedNextMilestones: &id001 []
+  continuationState: completed
+  alignmentRequired: false
+  mvpCloseEligible: false
+  schedulePolicy:
+    cadence: normal
+    checkpointFrequency: ''
+    deadline: null
+    urgency: normal
+    wakePolicy: kronos-governed
+    pauseOn:
+    - blocked
+    - awaiting_alignment
+    - awaiting_approval
+    shutdownOnCompletion: true
+    reactivateOnApprovedMilestone: true
+  boundHelper:
+    type: mbsa
+    status: active
+    assignedAgentId: david
+    selfTerminateOnCompletion: true
+    lifecycleHelperPath: scripts/milestone-helper-lifecycle.py
+    seedHelperPath: scripts/mbsa-seed-project.py
+    receiptRoot: memory/milestone-receipts/
+    registerSuccessorOnCompletion: true
+    futureMilestoneSpecsSeededByDefault: true
+    handoffSourceMilestoneId: cfv-ms-002
+    registeredBy: pending-mbsa-seed-project
+    earlyExitRules:
+    - retire when milestone is complete or no longer current
+    - silent exit when blocked or awaiting approval
+    - announce only completion, blockers, drift, or tool failure
+    cronId: 1cdfd8af-4eb8-4cf2-bbca-a8030c1898f8
+    specPath: memory/kronos/mbsa/compute-fund-v0/cfv-ms-003.yaml
+    updatedAt: '2026-08-07T14:00:55Z'
+  boundHelperCronId: 1cdfd8af-4eb8-4cf2-bbca-a8030c1898f8
+recentMilestones:
+- milestoneId: cfv-ms-001
+  status: complete
+  completedAt: '2026-08-06T14:02:26Z'
+  historicalCompletedAt: '2026-08-06T14:02:26Z'
+  remediatedAt: null
+  closureMode: runtime
+  ownerAgentId: david
+  completionReportPath: MILESTONE-REPORTING.md
+  exceptionReportPath: MILESTONE-EXCEPTION-REPORT.md
+  evidenceArtifacts:
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/receipt-cfv-ms-001-20260806T140226Z.yaml
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-cfv-ms-001-20260806T140226Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-rich-cfv-ms-001-20260806T140226Z.md
+  - MILESTONE-REPORTING.md
+  judgeReceiptPaths:
+  - handoffs/receipts/judges/judge-cfv-ms-001-fast-20260806T140226Z.yaml
+  - handoffs/receipts/judges/judge-cfv-ms-001-strong-20260806T140226Z.yaml
+  judgeReceipts:
+  - path: handoffs/receipts/judges/judge-cfv-ms-001-fast-20260806T140226Z.yaml
+    tier: fast
+    status: achieved
+    provenanceMode: runtime
+  - path: handoffs/receipts/judges/judge-cfv-ms-001-strong-20260806T140226Z.yaml
+    tier: strong
+    status: achieved
+    provenanceMode: runtime
+  proposedNextMilestones: *id001
+- milestoneId: cfv-ms-002
+  status: complete
+  completedAt: '2026-08-06T18:03:56Z'
+  historicalCompletedAt: '2026-08-06T18:03:56Z'
+  remediatedAt: null
+  closureMode: runtime
+  ownerAgentId: david
+  completionReportPath: MILESTONE-REPORTING.md
+  exceptionReportPath: MILESTONE-EXCEPTION-REPORT.md
+  evidenceArtifacts:
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/receipt-cfv-ms-001-20260806T140226Z.yaml
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-cfv-ms-001-20260806T140226Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-rich-cfv-ms-001-20260806T140226Z.md
+  - MILESTONE-REPORTING.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-002/receipt-cfv-ms-002-20260806T180356Z.yaml
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-cfv-ms-002-20260806T180356Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-rich-cfv-ms-002-20260806T180356Z.md
+  judgeReceiptPaths:
+  - handoffs/receipts/judges/judge-cfv-ms-002-fast-20260806T180356Z.yaml
+  - handoffs/receipts/judges/judge-cfv-ms-002-strong-20260806T180356Z.yaml
+  judgeReceipts:
+  - path: handoffs/receipts/judges/judge-cfv-ms-002-fast-20260806T180356Z.yaml
+    tier: fast
+    status: achieved
+    provenanceMode: runtime
+  - path: handoffs/receipts/judges/judge-cfv-ms-002-strong-20260806T180356Z.yaml
+    tier: strong
+    status: achieved
+    provenanceMode: runtime
+  proposedNextMilestones: *id001
+- milestoneId: cfv-ms-003
+  status: complete
+  completedAt: '2026-08-07T14:00:52Z'
+  historicalCompletedAt: '2026-08-07T14:00:52Z'
+  remediatedAt: null
+  closureMode: runtime
+  ownerAgentId: david
+  completionReportPath: MILESTONE-REPORTING.md
+  exceptionReportPath: MILESTONE-EXCEPTION-REPORT.md
+  evidenceArtifacts:
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/receipt-cfv-ms-001-20260806T140226Z.yaml
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-cfv-ms-001-20260806T140226Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-rich-cfv-ms-001-20260806T140226Z.md
+  - MILESTONE-REPORTING.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-002/receipt-cfv-ms-002-20260806T180356Z.yaml
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-cfv-ms-002-20260806T180356Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-rich-cfv-ms-002-20260806T180356Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-003/receipt-cfv-ms-003-20260807T140052Z.yaml
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-cfv-ms-003-20260807T140052Z.md
+  - memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-rich-cfv-ms-003-20260807T140052Z.md
+  judgeReceiptPaths:
+  - handoffs/receipts/judges/judge-cfv-ms-003-fast-20260807T140052Z.yaml
+  - handoffs/receipts/judges/judge-cfv-ms-003-strong-20260807T140052Z.yaml
+  judgeReceipts:
+  - path: handoffs/receipts/judges/judge-cfv-ms-003-fast-20260807T140052Z.yaml
+    tier: fast
+    status: achieved
+    provenanceMode: runtime
+  - path: handoffs/receipts/judges/judge-cfv-ms-003-strong-20260807T140052Z.yaml
+    tier: strong
+    status: achieved
+    provenanceMode: runtime
+  proposedNextMilestones: *id001
+legacyMilestones:
+- milestoneId: cfv-ms-001
+  status: complete
+  owner: project-lead
+  progressSummary: 'MBSA completion review passed for cfv-ms-001. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-cfv-ms-001-20260806T140226Z.md
+    | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-rich-cfv-ms-001-20260806T140226Z.md'
+  lastWritebackAt: '2026-08-06T14:02:26Z'
+  blocker: null
+- milestoneId: cfv-ms-002
+  status: complete
+  owner: project-lead-or-worker
+  progressSummary: 'MBSA completion review passed for cfv-ms-002. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-cfv-ms-002-20260806T180356Z.md
+    | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-rich-cfv-ms-002-20260806T180356Z.md'
+  lastWritebackAt: '2026-08-06T18:03:56Z'
+  blocker: null
+- milestoneId: cfv-ms-003
+  status: complete
+  owner: project-lead
+  progressSummary: 'MBSA completion review passed for cfv-ms-003. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-cfv-ms-003-20260807T140052Z.md
+    | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-rich-cfv-ms-003-20260807T140052Z.md'
+  lastWritebackAt: '2026-08-07T14:00:52Z'
+  blocker: null
+statusVocabulary:
+  canonicalMissionStatuses:
+  - draft
+  - aligned
+  - autopilot_active
+  - waiting_on_input
+  - blocked
+  - mvp_achieved
+  - closed
+  canonicalProjectStatuses:
+  - pending
+  - in_progress
+  - blocked
+  - awaiting_alignment
+  - drifted
+  - awaiting_approval
+  - complete
+  - completed
+  canonicalMilestoneStatuses:
+  - pending
+  - in_progress
+  - blocked
+  - awaiting_alignment
+  - drifted
+  - complete
+  canonicalJudgeStatuses:
+  - achieved
+  - not_achieved
+  - blocked
+  - needs_alignment
+  canonicalContinuationStates:
+  - advanced
+  - completed
+  - blocked
+  - drifted
+  - awaiting_alignment
+  - no_meaningful_change
+  queueTaskStatuses:
+  - proposed
+  - approved
+  - scheduled
+  - in_progress
+  - completed
+  - blocked
+  - awaiting-alignment
+  - needs-diagnosis
+reporting:
+  reportOnTaskLevel: false
+  reportOnMilestoneCompletion: true
+  reportOnMeaningfulBlocker: true
+  reportOnMajorDrift: true
+  reportOnDueDateMiss: true
+  reportOnAwaitingAlignment: true
+  reportOnRepeatedNoMeaningfulChange: true
+provenance:
+  origin:
+    actor: David
+    at: '2026-08-04T00:35:55Z'
+    mode: runtime-remediation
+lastWritebackAt: '2026-08-07T14:00:52Z'
+milestones:
+  cfv-ms-002:
+    status: complete
+    progressSummary: 'MBSA completion review passed for cfv-ms-002. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-cfv-ms-002-20260806T180356Z.md
+      | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-rich-cfv-ms-002-20260806T180356Z.md'
+    lastWritebackAt: '2026-08-06T18:03:56Z'
+    blocker: null
+  cfv-ms-003:
+    status: complete
+    progressSummary: 'MBSA completion review passed for cfv-ms-003. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-cfv-ms-003-20260807T140052Z.md
+      | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-003/report-rich-cfv-ms-003-20260807T140052Z.md'
+    lastWritebackAt: '2026-08-07T14:00:52Z'
+    blocker: null
+tickTockReactivation:
+  reactivatedAt: '2026-08-07T15:47:41Z'
+  reason: legacy auto-hold with pending milestones in chain; reactivated per tick-tock
+    anti-retirement (manifest §5.5)
+  by: project-milestone-contract-audit

@@ -1,0 +1,52 @@
+schema: project.next-step-queue.v1
+projectId: prj-compute-fund-v0-20260803
+projectSlug: compute-fund-v0
+updatedAt: '2026-08-07T15:47:41Z'
+status: active
+activeMilestoneId: cfv-ms-004
+policy:
+  activeQueueOnly: true
+  syncRuntimeSurfacesOnActiveMilestoneChange: true
+syncContract:
+  canonicalSource: MILESTONE-STATE.yaml#currentMilestoneId
+  activeMilestoneIdMustMatchCurrent: true
+  failGateOnDrift: true
+queuedSteps:
+- id: nsq-001
+  milestoneId: cfv-ms-001
+  title: Complete v0 prototype pages toward MVP
+  owner: david
+  status: in-progress
+  notes: Review the existing pages (landing, project list/detail, funding, receipts)
+    and continue building toward a minimum viable product.
+- id: nsq-002
+  milestoneId: cfv-ms-001
+  title: Wire local seeded state to Supabase
+  owner: david
+  status: pending
+  notes: Run supabase-schema.sql, add env values, replace local seeded reads/mutations
+    with Supabase.
+- id: nsq-003
+  milestoneId: cfv-ms-002
+  title: Add Stripe checkout and webhook routes
+  owner: david
+  status: complete
+  notes: Created Stripe checkout + webhook API routes and wired into funding flow.
+    Falls back to local state when Stripe env vars not set.
+- id: nsq-004
+  milestoneId: cfv-ms-002
+  title: Add provider receipt adapters
+  owner: david
+  status: pending
+  notes: OpenAI, Anthropic, xAI receipt adapters for compute-run proof.
+provenance:
+  origin:
+    actor: David
+    at: '2026-08-07T15:47:41Z'
+    mode: milestone-state-sync
+lastSyncedByMilestoneHelper:
+  at: '2026-08-06T18:03:56Z'
+  by: david
+  activeMilestoneId: cfv-ms-003
+  reason: 'MBSA completion review passed for cfv-ms-002. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-cfv-ms-002-20260806T180356Z.md
+    | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-rich-cfv-ms-002-20260806T180356Z.md'

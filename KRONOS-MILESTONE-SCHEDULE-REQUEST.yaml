@@ -1,0 +1,64 @@
+projectId: prj-compute-fund-v0-20260803
+milestoneId: cfv-ms-004
+currentMilestoneId: cfv-ms-004
+requestedBy: David
+requestedAt: '2026-08-04T00:35:55Z'
+updatedAt: '2026-08-06T18:03:56Z'
+syncContract:
+  canonicalSource: MILESTONE-STATE.yaml#currentMilestoneId
+  milestoneIdMustMatchCurrent: true
+  syncHelperPath: scripts/project-milestone-state-helper.py
+  failGateOnDrift: true
+mbsaRuntimePolicy:
+  inheritedByFutureMilestones: true
+  seedHelperPath: scripts/mbsa-seed-project.py
+  lifecycleHelperPath: scripts/milestone-helper-lifecycle.py
+  selfTerminateOnCompletion: true
+  registerSuccessorOnCompletion: true
+  disableStaleHelpers: true
+  silentNoopExit: true
+  announceOnlyOnMaterialEvents: true
+priority: normal
+deadline: null
+currentStatus: planned
+estimatedSurfaceSteps: 5
+estimatedTurns: 3
+estimatedRuns: 2
+suggestedCadence: daily
+allowAdaptiveIncrease: true
+shellOptimizationPolicy: raw-default
+shellOptimizationNotes: ''
+projectAgentMilestoneOwnership:
+  taskCreationOwner: project-agent
+  projectAgentsSelfAnalyzeMilestone: true
+  projectAgentsSelfScheduleNextTasks: true
+  requiredQueueSurface: NEXT-STEP-QUEUE.yaml
+taskTaggingPolicy:
+  requiredAtProposalTime: true
+  requiredFields:
+  - skillTags
+  - worktree
+  - worktreeMode
+  - worktreeReason
+triggerConditions:
+  increaseFrequencyWhen:
+  - deadline is near
+  - milestone is marked priority
+  - pace is behind expected progress
+  checkpointWhen:
+  - milestone completes
+  - meaningful blocker appears
+  - major drift appears
+notes: ''
+generationMode: runtime-remediation
+provenance:
+  origin:
+    actor: David
+    at: '2026-08-07T15:47:41Z'
+    mode: milestone-state-sync
+lastSyncedByMilestoneHelper:
+  at: '2026-08-06T18:03:56Z'
+  by: david
+  milestoneId: cfv-ms-003
+  reason: 'MBSA completion review passed for cfv-ms-002. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-cfv-ms-002-20260806T180356Z.md
+    | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-rich-cfv-ms-002-20260806T180356Z.md'

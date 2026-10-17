@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Compute Fund — how tokens flow with one-hop sharing</title>
+<style>
+  :root{
+    --bg:#0c1013; --panel:#121a1f; --panel2:#171f24; --line:#223138;
+    --tx:#d7e4dc; --dim:#7e948a; --phos:#5cff9d; --amber:#ffc95c; --red:#ff6b57;
+    --mono:ui-monospace,'JetBrains Mono',Consolas,monospace;
+    --sans:Inter,'Segoe UI',Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);color:var(--tx);font-family:var(--sans);padding:28px;}
+  .wrap{max-width:980px;margin:0 auto;}
+  h1{font-size:24px;font-weight:600;letter-spacing:.01em;}
+  h1 .g{color:var(--phos);}
+  .sub{color:var(--dim);font-size:14px;margin-top:8px;line-height:1.6;}
+  .panel{border:1px solid var(--line);background:var(--panel);margin-top:22px;padding:20px;}
+  .label{font-family:var(--mono);font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.14em;}
+  .label b{color:var(--phos);font-weight:500;}
+
+  /* fork chain rows */
+  .chain{display:flex;flex-direction:column;gap:0;margin-top:14px;}
+  .unit{display:flex;align-items:center;gap:12px;border:1px solid var(--line);background:var(--panel2);padding:12px 14px;}
+  .unit .indent{font-family:var(--mono);color:var(--dim);font-size:12px;white-space:nowrap;}
+  .unit .name{font-family:var(--mono);font-size:13px;color:var(--tx);}
+  .unit .tag{font-family:var(--mono);font-size:10px;color:var(--dim);border:1px solid var(--line);padding:2px 8px;white-space:nowrap;}
+  .unit.hot{border-color:var(--phos);}
+  .unit .name b{color:var(--phos);font-weight:600;}
+
+  /* flow arrows between rows */
+  .hop{display:flex;align-items:center;gap:10px;padding:2px 0 2px 34px;}
+  .hop .arrow-down{width:2px;height:16px;background:var(--phos);box-shadow:0 0 8px rgba(92,255,157,.4);}
+  .hop .txt{font-family:var(--mono);font-size:11px;color:var(--dim);}
+
+  /* money strip inside unit */
+  .flow{display:flex;height:26px;margin-top:10px;border:1px solid var(--line);font-family:var(--mono);font-size:11px;}
+  .flow div{display:flex;align-items:center;justify-content:center;height:100%;white-space:nowrap;overflow:hidden;}
+  .f-team{background:rgba(92,255,157,.12);color:var(--phos);}
+  .f-up{background:rgba(255,201,92,.10);color:var(--amber);}
+  .legend{display:flex;gap:18px;margin-top:10px;font-family:var(--mono);font-size:11px;color:var(--dim);}
+  .legend i{display:inline-block;width:10px;height:10px;margin-right:6px;}
+  .legend .i1{background:rgba(92,255,157,.5);}
+  .legend .i2{background:rgba(255,201,92,.5);}
+
+  .steps{margin-top:14px;}
+  .step{display:flex;gap:14px;margin-top:14px;align-items:flex-start;}
+  .step .num{font-family:var(--mono);color:var(--phos);font-size:13px;border:1px solid var(--line);padding:3px 9px;white-space:nowrap;}
+  .step .txt{font-size:14px;line-height:1.65;color:var(--tx);}
+  .step .txt b{color:var(--phos);font-weight:600;}
+  .step .txt .a{color:var(--amber);}
+  .note{margin-top:16px;font-family:var(--mono);font-size:11px;color:var(--dim);line-height:1.8;border-top:1px solid var(--line);padding-top:12px;}
+  .note .ok{color:var(--phos);}
+  .note .am{color:var(--amber);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Where the tokens <span class="g">flow</span></h1>
+  <p class="sub">One-hop sharing, explained like you're five. The fork pays "rent" to the floor it was built on — one floor up, never the whole staircase.</p>
+
+  <!-- THE CHAIN -->
+  <div class="panel">
+    <span class="label"><b>example:</b> a donation of 100 tokens to the youngest fork</span>
+    <div class="chain">
+
+      <div class="unit">
+        <span class="indent">HunyuanVideo</span>
+        <span class="tag">unclaimed · nobody home yet</span>
+        <div class="flow" style="flex-direction:column"><div class="f-up" style="width:100%">its share waits here (parked)</div></div>
+      </div>
+
+      <div class="hop"><span class="arrow-down"></span><span class="txt">its fork...</span></div>
+
+      <div class="unit">
+        <span class="indent">└ F1 Extended</span>
+        <span class="tag">gets nothing in this flow</span>
+      </div>
+
+      <div class="hop"><span class="arrow-down"></span><span class="txt">its fork...</span></div>
+
+      <div class="unit">
+        <span class="indent">&nbsp;&nbsp;&nbsp;└ F2 Lite</span>
+        <span class="tag">the floor F3 was built on</span>
+        <div class="flow"><div class="f-up" style="width:10%">+10</div><div style="width:0%"></div></div>
+      </div>
+
+      <div class="hop"><span class="arrow-down"></span><span class="txt">its fork...</span></div>
+
+      <div class="unit hot">
+        <span class="indent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└ <b>F3 Mobile</b></span>
+        <span class="tag">gets funded directly</span>
+        <div class="flow"><div class="f-team" style="width:90%">90 to the F3 team</div><div class="f-up" style="width:10%">10 up</div></div>
+      </div>
+
+    </div>
+    <div class="legend">
+      <span><i class="i1"></i>the fork's team</span>
+      <span><i class="i2"></i>one floor up (direct parent only)</span>
+    </div>
+  </div>
+
+  <!-- THE THREE MOMENTS -->
+  <div class="panel">
+    <span class="label"><b>the three moments</b> tokens move</span>
+    <div class="steps">
+      <div class="step">
+        <span class="num">1</span>
+        <span class="txt"><b>Direct donation.</b> You fund a fork like any project. The fork pays 10 "rent" one floor up. The other floors get <b>nothing</b> — not a cascade, not crumbs multiplying downward.</span>
+      </div>
+      <div class="step">
+        <span class="num">2</span>
+        <span class="txt"><b>The torch (day 90).</b> A project nobody claimed dies-slow: its parked tokens open up and patrons point their OWN tokens at a fork. <span class="a">Your fork just inherited a boost</span> — because the crowd steers, not a gatekeeper.</span>
+      </div>
+      <div class="step">
+        <span class="num">3</span>
+        <span class="txt"><b>The original creator wakes up.</b> If the top project was unclaimed, every share that flowed up parked there — <b>piling up, waiting</b>. The day he claims, YEARS of fork success hand him everything at once. Claiming is always worth it, even late. <span class="a">That's the incentive that never expires.</span></span>
+      </div>
+    </div>
+    <div class="note">
+      &gt; what this incentivizes, in one line each:<br>
+      <span class="ok">✓ fork authors</span> — you keep 90% of what you earn; building on others is cheap<br>
+      <span class="ok">✓ original creators</span> — claim anytime; your share has been accumulating since day one<br>
+      <span class="ok">✓ the community</span> — abandoned work never traps tokens; they follow conviction<br>
+      <span class="am">▸ and the fork is NOT dependent on this:</span> funding a fork directly is always open — this is just rent + a baton, never a toll gate
+    </div>
+  </div>
+</div>
+</body>
+</html>

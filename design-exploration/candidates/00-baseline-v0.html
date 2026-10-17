@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Compute Fund v0 — Baseline (现状)</title>
+<style>
+  :root{
+    --bg:#f6f7f4; --card:#ffffff; --border:#d8ded6; --primary:#1f4f46; --accent:#2c7a61;
+    --chip-bg:#e9eadf; --chip-tx:#69705c; --muted:#587066; --funded:#1f6d55; --bar:#e1e6df;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--bg);font-family:ui-sans-serif,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;color:#1c2b26;padding:28px;}
+  .wrap{max-width:1240px;margin:0 auto;}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px solid var(--border);padding-bottom:18px;gap:16px;flex-wrap:wrap;}
+  h1{font-size:24px;font-weight:600;color:#16221e;}
+  .sub{margin-top:8px;font-size:14px;line-height:1.5;color:var(--muted);max-width:560px;}
+  .search{border:1px solid #cad3cc;background:#fff;border-radius:6px;height:44px;display:flex;align-items:center;padding:0 12px;color:#647469;font-size:14px;min-width:320px;gap:8px;}
+  .nav{display:flex;gap:14px;margin:16px 0 20px;font-size:14px;color:var(--muted);border-bottom:1px solid var(--border);padding-bottom:14px;}
+  .nav b{color:var(--primary);}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:20px;display:flex;flex-direction:column;}
+  .toprow{display:flex;justify-content:space-between;align-items:center;}
+  .chip{background:var(--chip-bg);color:var(--chip-tx);padding:4px 8px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:2px;}
+  .amt{font-weight:600;color:var(--funded);font-size:14px;}
+  h3{margin-top:16px;font-size:17px;font-weight:600;color:#16221e;}
+  .sum{margin-top:8px;font-size:14px;line-height:1.5;color:var(--muted);}
+  .barwrap{margin-top:16px;height:8px;background:var(--bar);border-radius:2px;overflow:hidden;}
+  .fill{height:100%;background:var(--accent);}
+
+  .meter{display:flex;justify-content:space-between;font-size:12px;color:#647469;margin-top:14px;}
+  .tiers{margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .tier{border:1px solid #cad3cc;background:#fbfcf8;border-radius:6px;height:40px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#36443b;}
+  .tier.on{background:var(--primary);color:#fff;border-color:var(--primary);}
+  .row{display:flex;gap:10px;margin-top:14px;}
+  .btn{flex:1;border:1px solid #cad3cc;background:#fbfcf8;border-radius:6px;height:40px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#36443b;}
+  .btn.primary{background:var(--primary);color:#fff;border-color:var(--primary);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div>
+      <h1>Discover Projects</h1>
+      <p class="sub">Browse problems looking for compute sponsorship. Search by creator, topic, or outcome.</p>
+    </div>
+    <div class="search">⌕ Search projects</div>
+  </div>
+  <div class="nav"><b>Dashboard</b> · Discover · My Projects</div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="toprow"><span class="chip">Research</span><span class="amt">$7,420</span></div>
+      <h3>Astra Math Verification Sprint</h3>
+      <p class="sum">Pool compute to test frontier models against a difficult proof search with every run logged for supporters.</p>
+      <div class="barwrap"><div class="fill" style="width:62%"></div></div>
+      <div class="meter"><span>$7,420 of $12,000</span><span>186 supporters</span></div>
+      <div class="tiers"><div class="tier">$25</div><div class="tier">$100</div><div class="tier on">$500</div></div>
+      <div class="row"><div class="btn">Open</div><div class="btn">Follow</div><div class="btn primary">Fund</div></div>
+    </div>
+
+    <div class="card">
+      <div class="toprow"><span class="chip">Public Good</span><span class="amt">$3,120</span></div>
+      <h3>Rural Clinic Scheduling Optimizer</h3>
+      <p class="sum">Use sponsored model credits to reduce wait times for a small clinic without buying expensive enterprise software.</p>
+      <div class="barwrap"><div class="fill" style="width:46%"></div></div>
+      <div class="meter"><span>$3,120 of $6,800</span><span>74 supporters</span></div>
+      <div class="tiers"><div class="tier on">$25</div><div class="tier">$100</div><div class="tier">$500</div></div>
+      <div class="row"><div class="btn">Open</div><div class="btn">Follow</div><div class="btn primary">Fund</div></div>
+    </div>
+
+    <div class="card">
+      <div class="toprow"><span class="chip">Developer Tools</span><span class="amt">$8,910</span></div>
+      <h3>Open Source Bug Bounty Agent</h3>
+      <p class="sum">Backers fund AI debugging passes for issues maintainers cannot afford to investigate manually.</p>
+      <div class="barwrap"><div class="fill" style="width:94%"></div></div>
+      <div class="meter"><span>$8,910 of $9,500</span><span>241 supporters</span></div>
+      <div class="tiers"><div class="tier">$25</div><div class="tier on">$100</div><div class="tier">$500</div></div>
+      <div class="row"><div class="btn">Open</div><div class="btn">Follow</div><div class="btn primary">Fund</div></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

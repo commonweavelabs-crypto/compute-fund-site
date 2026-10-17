@@ -1,0 +1,32 @@
+judgeReceiptId: judge-cfv-ms-002-fast-20260806T180356Z
+missionId: ''
+projectId: prj-compute-fund-v0-20260803
+milestoneId: cfv-ms-002
+scope: milestone
+status: achieved
+confidence: medium
+reason: 'MBSA completion review passed for cfv-ms-002. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-cfv-ms-002-20260806T180356Z.md
+  | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-rich-cfv-ms-002-20260806T180356Z.md'
+largestGap: ''
+evidenceChecked:
+- MILESTONE-STATE.yaml
+- 'summary:MBSA completion review passed for cfv-ms-002. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-cfv-ms-002-20260806T180356Z.md
+  | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-rich-cfv-ms-002-20260806T180356Z.md'
+- memory/milestone-receipts/compute-fund-v0/cfv-ms-001/receipt-cfv-ms-001-20260806T140226Z.yaml
+- memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-cfv-ms-001-20260806T140226Z.md
+- memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-rich-cfv-ms-001-20260806T140226Z.md
+- MILESTONE-REPORTING.md
+- memory/milestone-receipts/compute-fund-v0/cfv-ms-002/receipt-cfv-ms-002-20260806T180356Z.yaml
+- memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-cfv-ms-002-20260806T180356Z.md
+- memory/milestone-receipts/compute-fund-v0/cfv-ms-002/report-rich-cfv-ms-002-20260806T180356Z.md
+nextBestAction: Prepare strong judge verification for milestone close.
+loopRisk: low
+judgeTier: fast
+judgeAgent: miya-or-equivalent
+createdAt: '2026-08-06T18:03:56Z'
+provenance:
+  mode: runtime
+  createdBy: project-milestone-state-helper
+  createdAt: '2026-08-06T18:03:56Z'
+  note: ''
+notes: Auto-created by project-milestone-state-helper for david

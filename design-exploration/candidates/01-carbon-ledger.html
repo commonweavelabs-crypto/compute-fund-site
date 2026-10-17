@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>01 — Carbon Ledger</title>
+<style>
+  :root{
+    --paper:#f4efe3; --paper-deep:#ece5d3; --ink:#181614; --ink-soft:#4a443c;
+    --hair:#c9c0ac; --stamp:#b3372b; --ok:#3e6b3a; --serif:"Iowan Old Style",Georgia,'Times New Roman',serif;
+    --mono:ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--serif);padding:28px;
+    background-image:repeating-linear-gradient(0deg,rgba(24,22,20,.025) 0 1px,transparent 1px 28px);}
+  .wrap{max-width:1240px;margin:0 auto;}
+  .masthead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:3px double var(--ink);padding-bottom:14px;}
+  .masthead h1{font-size:34px;font-weight:700;letter-spacing:-.01em;}
+  .masthead small{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);}
+  .toolbar{display:flex;justify-content:space-between;align-items:center;margin:14px 0 22px;font-family:var(--mono);font-size:12px;color:var(--ink-soft);letter-spacing:.08em;text-transform:uppercase;}
+  .toolbar .links span{margin-right:18px;} .toolbar .links b{color:var(--ink);}
+  .stampbtn{border:1.5px solid var(--ink);padding:7px 14px;background:transparent;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink);}
+
+  .card{background:#faf6ec;border:1px solid var(--hair);position:relative;padding:20px 22px 18px;
+    box-shadow:2px 2px 0 rgba(24,22,20,.08);}
+  .card::before,.card::after{content:"";position:absolute;left:0;right:0;height:0;border-top:2px dashed var(--hair);}
+  .card::before{top:10px;} .card::after{bottom:10px;}
+  .cardhead{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--ink);padding-bottom:10px;}
+  .cardno{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--ink-soft);}
+  h3{margin-top:14px;font-size:21px;font-weight:700;line-height:1.15;}
+  .by{margin-top:4px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.06em;}
+  .ledger{margin-top:14px;font-family:var(--mono);font-size:12px;}
+  .ledger .row{display:flex;align-items:baseline;gap:6px;padding:5px 0;border-bottom:1px dotted var(--hair);}
+  .ledger .dots{flex:1;border-bottom:1px dotted var(--ink-soft);transform:translateY(-3px);}
+  .ledger .v{color:var(--ink);}
+  .ledger .v.red{color:var(--stamp);}
+  .totline{display:flex;justify-content:space-between;margin-top:10px;font-size:12px;}
+  .totline b{font-family:var(--mono);}
+  .bar{margin-top:12px;height:14px;border:1px solid var(--ink);background:#faf6ec;position:relative;overflow:hidden;}
+  .bar i{position:absolute;inset:0;background:repeating-linear-gradient(-45deg,var(--ink) 0 3px,transparent 3px 7px);}
+  .bar .pct{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:10px;mix-blend-mode:difference;color:#fff;}
+  .tiers{margin-top:14px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);}
+  .tiers .t{display:flex;justify-content:space-between;align-items:center;padding:8px 2px;border-bottom:1px dotted var(--hair);font-family:var(--mono);font-size:12px;}
+  .tiers .t:last-child{border-bottom:0;}
+  .tiers .amt{color:var(--stamp);font-weight:700;}
+  .tiers .t.sel{background:var(--ink);color:#faf6ec;} .tiers .t.sel .amt{color:#f0c9c2;}
+  .stampact{margin-top:14px;display:flex;justify-content:space-between;align-items:center;}
+  .fundbtn{border:1.5px solid var(--stamp);color:var(--stamp);padding:9px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;background:transparent;}
+  .openlnk{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-decoration:underline;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="masthead">
+    <h1>The Open Ledger</h1>
+    <small>Every run receipted · Public since 2026</small>
+  </div>
+  <div class="toolbar">
+    <div class="links"><b>Ledger</b><span>Milestones</span><span>My patronage</span></div>
+    <button class="stampbtn">Search the record</button>
+  </div>
+
+  <div class="grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+
+    <div class="card">
+      <div class="cardhead"><h3>Astra Math Verification Sprint</h3><span class="cardno">RCT №0042</span></div>
+      <p class="by">Open Research Guild · filed Sep 18, 2026</p>
+      <div class="ledger">
+        <div class="row"><span>COMMITTED</span><span class="dots"></span><span class="v">$7,420</span></div>
+        <div class="row"><span>BUDGET</span><span class="dots"></span><span class="v">$12,000</span></div>
+        <div class="row"><span>RUN 12 · OpenAI reasoning</span><span class="dots"></span><span class="v red">−$820</span></div>
+        <div class="row"><span>PROOF ROUTES FOUND</span><span class="dots"></span><span class="v">3</span></div>
+      </div>
+      <div class="bar"><i style="width:62%"></i><span class="pct">62%</span></div>
+      <p class="totline"><span>186 patrons of record</span><b>balance remaining $4,580</b></p>
+      <div class="tiers">
+        <div class="t"><span>PATRON · Tier I</span><span class="amt">$25</span></div>
+        <div class="t"><span>PATRON · Tier II</span><span class="amt">$100</span></div>
+        <div class="t sel"><span>PATRON · Tier III</span><span class="amt">$500</span></div>
+      </div>
+      <div class="stampact"><span class="openlnk">View full receipt</span><button class="fundbtn">Sign commitment</button></div>
+    </div>
+
+    <div class="card">
+      <div class="cardhead"><h3>Rural Clinic Scheduling Optimizer</h3><span class="cardno">RCT №0043</span></div>
+      <p class="by">Civic Systems Lab · filed Oct 2, 2026</p>
+      <div class="ledger">
+        <div class="row"><span>COMMITTED</span><span class="dots"></span><span class="v">$3,120</span></div>
+        <div class="row"><span>BUDGET</span><span class="dots"></span><span class="v">$6,800</span></div>
+        <div class="row"><span>RUN 03 · Claude plan</span><span class="dots"></span><span class="v red">−$240</span></div>
+        <div class="row"><span>WAIT TIME TARGET</span><span class="dots"></span><span class="v">−31%</span></div>
+      </div>
+      <div class="bar"><i style="width:46%"></i><span class="pct">46%</span></div>
+      <p class="totline"><span>74 patrons of record</span><b>balance remaining $3,680</b></p>
+      <div class="tiers">
+        <div class="t sel"><span>PATRON · Tier I</span><span class="amt">$25</span></div>
+        <div class="t"><span>PATRON · Tier II</span><span class="amt">$100</span></div>
+        <div class="t"><span>PATRON · Tier III</span><span class="amt">$500</span></div>
+      </div>
+      <div class="stampact"><span class="openlnk">View full receipt</span><button class="fundbtn">Sign commitment</button></div>
+    </div>
+
+    <div class="card">
+      <div class="cardhead"><h3>Open Source Bug Bounty Agent</h3><span class="cardno">RCT №0044</span></div>
+      <p class="by">Gui Labs · filed Aug 28, 2026</p>
+      <div class="ledger">
+        <div class="row"><span>COMMITTED</span><span class="dots"></span><span class="v">$8,910</span></div>
+        <div class="row"><span>BUDGET</span><span class="dots"></span><span class="v">$9,500</span></div>
+        <div class="row"><span>RUN 07 · xAI analysis</span><span class="dots"></span><span class="v red">−$640</span></div>
+        <div class="row"><span>RACE CONDITION</span><span class="dots"></span><span class="v">1 found</span></div>
+      </div>
+      <div class="bar"><i style="width:94%"></i><span class="pct">94%</span></div>
+      <p class="totline"><span>241 patrons of record</span><b>balance remaining $590</b></p>
+      <div class="tiers">
+        <div class="t"><span>PATRON · Tier I</span><span class="amt">$25</span></div>
+        <div class="t sel"><span>PATRON · Tier II</span><span class="amt">$100</span></div>
+        <div class="t"><span>PATRON · Tier III</span><span class="amt">$500</span></div>
+      </div>
+      <div class="stampact"><span class="openlnk">View full receipt</span><button class="fundbtn">Sign commitment</button></div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+projectId: prj-compute-fund-v0-20260803
+missionContractPath: MISSION-CONTRACT.yaml
+createdBy: David
+startupPolicy:
+  maxImmediateTasksTonight: 3
+  requireLoadCheck: true
+  shellOptimizationDefault: raw-default
+  requireMissionReviewFirst: true
+  requireNext10Proposal: true
+  nextStepQueueRequired: true
+  kronosApprovalRequiredForExecutionAfterStartup: true
+  periodicKronosReviewCadence: hourly
+  autonomyModeDefault: work_to_mvp
+  requireJudgeAfterMeaningfulPass: true
+  requireFastJudgeBeforeMilestoneClose: true
+  requireStrongJudgeBeforeMilestoneClose: true
+  requireStrongJudgeBeforeMvpClose: true
+  requireCompletionEvidenceBeforeMilestoneClose: true
+  inheritProjectMissionMilestoneJudgeContract: true
+  judgeReceiptsValidateCompletionClaims: true
+  expensiveModelTasks:
+    policy: stagger
+    maxConcurrent: 1
+agentOperatingContract:
+  scopeAndAccessLimitsRequired: true
+  activeMilestoneDisciplineRequired: true
+  workOnlyAssignedMilestones: true
+  writebackViaMilestoneHelperRequired: true
+  syncRuntimeSurfacesOnActiveMilestoneChange: true
+  runtimeSurfacesToKeepAligned:
+  - MILESTONE-STATE.yaml
+  - NEXT-STEP-QUEUE.yaml
+  - KRONOS-MILESTONE-SCHEDULE-REQUEST.yaml
+  milestoneCloseRequiresFastAndStrongJudges: true
+  milestoneCloseRequiresEvidenceArtifacts: true
+  inheritProjectMissionMilestoneJudgeContract: true
+  judgeReceiptsValidateCompletionClaims: true
+  boundedNextStepTasksOnly: true
+  allowedReportTriggers:
+  - milestone_completion
+  - blocker
+  - major_drift
+  - due_date_miss
+  suppressWakeWhenNoActiveMilestone: true
+kronosGovernance:
+  ownsWakeSchedule: true
+  ownsCadencePerAgentPerMilestone: true
+  pauseWhen:
+  - blocked
+  - awaiting_alignment
+  - awaiting_approval
+  shutdownWhenFinalMilestoneComplete: true
+  reactivateWhenNewMilestoneApproved: true
+  noSelfWakingByDefault: true
+queueArtifacts:
+  nextStepQueuePath: NEXT-STEP-QUEUE.yaml
+  kronosDecisionPath: KRONOS-QUEUE-DECISION.md
+  milestoneExceptionReportPath: MILESTONE-EXCEPTION-REPORT.md
+  judgeReceiptPath: handoffs/receipts/judges/
+staffingAutomation:
+  autoEmitRequestsWhenActivationReady: true
+  requireTorchPassingStateMachine: true
+  staffingOutboxPath: handoffs/staffing-requests/
+  hephaestusReceiptPath: handoffs/receipts/hephaestus/
+  zeusReceiptPath: handoffs/receipts/zeus/
+  kronosReceiptPath: handoffs/receipts/kronos/
+  callbackReceiptPath: handoffs/receipts/callbacks/
+  requireRealScheduleReceiptBeforeLive: true
+waves:
+- waveId: wave-1
+  goal: milestone comprehension and action ranking
+  tasks:
+  - id: lead-review-core-docs
+    role: project-lead
+    priority: critical
+    cost: low
+  - id: lead-review-initial-milestones
+    role: project-lead
+    priority: critical
+    cost: low
+  - id: worker-review-shared-docs
+    role: first-worker
+    priority: high
+    cost: low
+- waveId: wave-2
+  goal: first milestone execution burst
+  tasks:
+  - id: execute-current-milestone-top-1
+    role: project-lead-or-worker
+    priority: high
+    cost: medium
+  - id: execute-current-milestone-top-2
+    role: worker
+    priority: medium
+    cost: medium
+  - id: writeback-milestone-progress
+    role: project-lead
+    priority: high
+    cost: low
+- waveId: wave-3
+  goal: milestone review and refresh
+  tasks:
+  - id: lead-evaluate-milestone-progress
+    role: project-lead
+    priority: critical
+    cost: low
+  - id: prepare-milestone-checkpoint-report
+    role: project-lead
+    priority: high
+    cost: low
+  - id: propose-next-milestone-set
+    role: project-lead
+    priority: high
+    cost: low
+createdAt: '2026-08-04T00:35:55Z'
+generationMode: runtime-remediation
+provenance:
+  origin:
+    actor: David
+    at: '2026-08-03T20:38:00Z'
+    mode: runtime-remediation

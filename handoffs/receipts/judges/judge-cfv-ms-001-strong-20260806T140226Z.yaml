@@ -1,0 +1,29 @@
+judgeReceiptId: judge-cfv-ms-001-strong-20260806T140226Z
+missionId: ''
+projectId: prj-compute-fund-v0-20260803
+milestoneId: cfv-ms-001
+scope: milestone
+status: achieved
+confidence: medium
+reason: 'MBSA completion review passed for cfv-ms-001. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-cfv-ms-001-20260806T140226Z.md
+  | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-rich-cfv-ms-001-20260806T140226Z.md'
+largestGap: ''
+evidenceChecked:
+- MILESTONE-STATE.yaml
+- 'summary:MBSA completion review passed for cfv-ms-001. Report: memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-cfv-ms-001-20260806T140226Z.md
+  | Rich: memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-rich-cfv-ms-001-20260806T140226Z.md'
+- memory/milestone-receipts/compute-fund-v0/cfv-ms-001/receipt-cfv-ms-001-20260806T140226Z.yaml
+- memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-cfv-ms-001-20260806T140226Z.md
+- memory/milestone-receipts/compute-fund-v0/cfv-ms-001/report-rich-cfv-ms-001-20260806T140226Z.md
+- MILESTONE-REPORTING.md
+nextBestAction: Advance only if milestone-close criteria remain satisfied.
+loopRisk: low
+judgeTier: strong
+judgeAgent: miya-or-equivalent
+createdAt: '2026-08-06T14:02:26Z'
+provenance:
+  mode: runtime
+  createdBy: project-milestone-state-helper
+  createdAt: '2026-08-06T14:02:26Z'
+  note: ''
+notes: Auto-created by project-milestone-state-helper for david
