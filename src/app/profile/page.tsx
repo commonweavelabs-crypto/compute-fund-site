@@ -40,7 +40,7 @@ export default function ProfilePage() {
         id: String(data.id),
         display_name: String(data.display_name ?? ""),
         bio: (data.bio as string) ?? null,
-        links: ((data.links as { url: string }[]) ?? []) as MyProfile["links"],
+        links: (Array.isArray(data.links) ? (data.links as { url: string }[]) : []) as MyProfile["links"],
         avatar_url: (data.avatar_url as string) ?? null,
         visibility: String(data.visibility ?? "private"),
         profile_type: String(data.profile_type ?? "personal"),
@@ -122,12 +122,12 @@ export default function ProfilePage() {
           </div>
           <div>
             <label className="text-[11px] uppercase tracking-[0.14em]">links</label>
-            {profile.links.map((l, i) => (
+            {(Array.isArray(profile.links) ? profile.links : []).map((l, i) => (
               <input
                 key={i}
                 value={l.url}
                 onChange={(e) => {
-                  const links = [...profile.links];
+                  const links = [...(Array.isArray(profile.links) ? profile.links : [])];
                   links[i] = { url: e.target.value };
                   setProfile({ ...profile, links });
                 }}
@@ -137,7 +137,7 @@ export default function ProfilePage() {
             ))}
             <button
               type="button"
-              onClick={() => setProfile({ ...profile, links: [...profile.links, { url: "" }] })}
+              onClick={() => setProfile({ ...profile, links: [...(Array.isArray(profile.links) ? profile.links : []), { url: "" }] })}
               className="mono mt-2 border border-line px-2 py-1 text-[10px] uppercase tracking-[0.1em] text-dim hover:border-phos hover:text-phos"
             >
               + link
