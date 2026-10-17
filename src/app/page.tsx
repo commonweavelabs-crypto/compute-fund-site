@@ -323,9 +323,11 @@ export default function Home() {
             }}
             className="flex items-center gap-2 text-left"
           >
-            <span className="mono flex size-9 items-center justify-center border border-phos text-phos">
-              &gt;_
-            </span>
+            <img
+              src="/logos/compute-fund-logo-mark.png"
+              alt="Compute Fund"
+              className="size-9 object-cover"
+            />
             <span className="hidden sm:block">
               <span className="mono block text-[13px] font-semibold tracking-[0.18em] text-tx">
                 COMPUTE.FUND
