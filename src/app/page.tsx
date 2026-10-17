@@ -17,6 +17,7 @@ import { submitRating } from "@/lib/ratings";
 import { savePluginSplits, type SplitLine } from "@/lib/plugins";
 import type { Category, Milestone } from "@/types/compute-fund";
 import MilestoneList from "@/components/milestones/MilestoneList";
+import { ProjectStewardship } from "@/components/stewardship/ProjectStewardship";
 import MilestoneForm, { type MilestoneFormValues } from "@/components/milestones/MilestoneForm";
 import CategoryFilter from "@/components/discovery/CategoryFilter";
 import VoteButton from "@/components/community/VoteButton";
@@ -1472,6 +1473,8 @@ function ProjectLanding({
   busy = false,
   authed = false,
   canEditSplits = false,
+  myProfileId = null as string | null,
+  onStewardshipChange = (() => {}) as () => void,
 }: {
   project: Project;
   allProjects: Project[];
@@ -1493,6 +1496,8 @@ function ProjectLanding({
   busy?: boolean;
   authed?: boolean;
   canEditSplits?: boolean;
+  myProfileId?: string | null;
+  onStewardshipChange?: () => void;
 }) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
@@ -1524,6 +1529,13 @@ function ProjectLanding({
               <i style={{ width: `${pct(project)}%` }} />
             </div>
           </div>
+
+          <ProjectStewardship
+            project={project}
+            authed={authed}
+            myProfileId={myProfileId}
+            onChanged={onStewardshipChange}
+          />
 
           <div className="border-t border-line p-5">
             <h2 className="mono text-[11px] uppercase tracking-[0.16em] text-dim">the problem</h2>
