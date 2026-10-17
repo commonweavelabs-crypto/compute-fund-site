@@ -684,6 +684,15 @@ function Landing({
             alt=""
             className="absolute inset-0 size-full object-cover"
           />
+          <video
+            className="hero-video absolute inset-0 size-full object-cover"
+            src="/project-art/hero-loop.mp4"
+            poster="/project-art/hero.png"
+            muted
+            loop
+            autoPlay
+            playsInline
+          />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--panel),transparent_30%)]" />
           <span className="display absolute right-6 top-6 -rotate-3 text-right text-lg italic text-amber opacity-90">
             a more open future

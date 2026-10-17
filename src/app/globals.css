@@ -172,3 +172,9 @@ html[data-theme="dark"] .vbar i {
 @media (prefers-reduced-motion: reduce) {
   .ticker-track { animation: none; }
 }
+
+/* hero living shot: video over still; reduced motion = still only */
+.hero-video { opacity: 0.95; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+}
